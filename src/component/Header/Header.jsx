@@ -29,7 +29,7 @@ const Header = () => {
                 <div className="w-10 rounded-full ">
                     <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" /> 
                 </div>  
-                <button className="btn btn-sm btn-accent">Login</button>            
+                <Link to="/login"><button className="btn btn-sm btn-accent">Login</button> </Link>           
             </div>
         </div>
         </div>
