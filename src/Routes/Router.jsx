@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../component/Home/Home";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
+import Chefs from "../component/chefs/Chefs";
 
 const router = createBrowserRouter([
     {
@@ -11,7 +12,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:3000/chefs')
             },
             {
                 path: '/login',
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element :<Register></Register>
+            },
+            {
+                path: '/chefs',
+                element: <Chefs></Chefs>
             }
         ]
     }

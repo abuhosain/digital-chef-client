@@ -1,8 +1,13 @@
 import React from 'react';
+import Chefs from '../chefs/Chefs';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
+    const chefs = useLoaderData()
+    // console.log(chefs)
     return (
         <div className="md:mx-40">
+            {/* banner section */}
             <div className="bg-gray-800 md:py-16">
                 <div className="container mx-auto grid md:grid-cols-2 items-center justify-center bg-gray-800">
                     {/* Text on the left */}
@@ -18,6 +23,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+        {/* chefs section */}
+        <Chefs chefs={chefs}></Chefs>
         </div>
     );
 };
