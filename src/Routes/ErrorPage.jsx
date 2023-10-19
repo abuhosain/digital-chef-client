@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import error from '../assets/error-page.png'
 const ErrorPage = () => {
     const customStyles = {
         backgroundColor: '#ffdbe1'
@@ -15,7 +15,7 @@ const ErrorPage = () => {
                 <button className='btn bg-red-500 mt-6 px-6 pb-3 pt-2 hover:bg-red-600 text-white text-2xl'><Link to='/'>Plz Go Back</Link></button>
             </div>
             <div className="lg:w-1/2 text-center p-4">
-                <img src="/public/error-page.png" alt="Image Description" className="max-w-full h-auto inline-block" />
+                <img src={error} alt="Image Description" className="max-w-full h-auto inline-block" />
             </div>
         </div>
        </div>

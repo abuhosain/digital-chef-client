@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:3000/chefs')
+                loader: () => fetch('https://digital-chef-server-4ait460bu-abu-hosains-projects.vercel.app/chefs')
             },
             {
                 path: '/login',
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path:'/chefs/:id',
                 element: <PrivateRoute><ChefRecipies></ChefRecipies></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:3000/chefs/${params.id}`)
+                loader: ({params}) => fetch(`https://digital-chef-server-4ait460bu-abu-hosains-projects.vercel.app/chefs/${params.id}`)
 
             },
             {

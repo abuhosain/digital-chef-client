@@ -1,6 +1,7 @@
 import React from 'react';
 import Chefs from '../chefs/Chefs';
 import { useLoaderData } from 'react-router-dom';
+import deliver from '../../assets/delivery-boy.png'
 
 const Home = () => {
     const chefs = useLoaderData()
@@ -19,7 +20,7 @@ const Home = () => {
 
                     {/* Image on the right */}
                     <div className="w-3/4">
-                        <img src="/public/delivery-boy.png" alt="Banner Image" className="w-full h-auto rounded-lg" />
+                        <img src={deliver} alt="Banner Image" className="w-full h-auto rounded-lg" />
                     </div>
                 </div>
             </div>
