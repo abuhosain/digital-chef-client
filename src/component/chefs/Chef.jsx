@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Chef = ({chef}) => {
     return (
@@ -15,7 +16,7 @@ const Chef = ({chef}) => {
           <p className="text-gray-700 text-base">
             Likes: {chef.likes}
           </p>
-          <button className='bg-primary text-white rounded my-2 px-3 py-2 text-sm'>View Recipes  Button</button>
+          <button className='bg-primary text-white rounded my-2 px-3 py-2 text-sm'><Link to={`/chefs/${chef.id}`}>View Recipes  Button</Link></button>
         </div>
       </div>
     );

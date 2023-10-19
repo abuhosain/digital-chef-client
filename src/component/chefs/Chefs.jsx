@@ -2,7 +2,7 @@ import React from 'react';
 import Chef from './Chef';
 
 const Chefs = ({ chefs }) => {
-    console.log(chefs)
+    // console.log(chefs)
     return (
         <div className='my-6'> 
             <h3 className='text-center font-bold text-4xl'>Meet Our Chef</h3>
