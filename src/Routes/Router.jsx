@@ -6,11 +6,14 @@ import Register from "../component/Register/Register";
 import Chefs from "../component/chefs/Chefs";
 import ChefRecipies from "../component/chefs/ChefRecipies";
 import Chef from "../component/chefs/Chef";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "./ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App></App>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/chefs/:id',
-                element: <ChefRecipies></ChefRecipies>,
+                element: <PrivateRoute><ChefRecipies></ChefRecipies></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:3000/chefs/${params.id}`)
 
             }
