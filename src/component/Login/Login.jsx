@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../Provider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+    const {loginUser, google, gitHub} = useContext(AuthContext);
+    const handleGoogleSignIn = () => {
+        const provider = new GoogleAuthProvider;
+        google(provider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .error(error => console.log(error))
+    }
+    const  handleGitHubSignIn = () => {
+        const provider = new GithubAuthProvider;
+        gitHub(provider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .error(error => console.log(error))
+    }
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        loginUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch(error => console.log(error));
         console.log(email, password)
     }
     return (
@@ -53,8 +80,8 @@ const Login = () => {
           </form>
           <h3>If you new please <Link to="/register"><span className='underline text-primary'>Register</span></Link></h3>
           <div className='flex items-center gap-5'>
-            <div className="flex items-center cursor-pointer"><FaGithub className='relative'/><span className='ms-1'>GitHub</span></div>
-            <div className="flex items-center cursor-pointer"><FaGoogle className='relative'/><span className='ms-1'>Google</span></div>
+            <div className="flex items-center cursor-pointer" onClick={handleGitHubSignIn}><FaGithub className='relative'/><span className='ms-1'>GitHub</span></div>
+            <div className="flex items-center cursor-pointer" onClick={handleGoogleSignIn}><FaGoogle className='relative'/><span className='ms-1'>Google</span></div>
           </div>
         </div>
       </div>
